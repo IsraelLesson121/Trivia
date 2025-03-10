@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InstructionActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="הוראות משחק:"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:textColor="#9C27B0"
+        android:background="#03A9F4"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. כדי להתחיל לשחק לחץ על כתור הStart Game"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+       ></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. כדי לשנות את צבע הרקע לחץ על Settings"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        ></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3.בכל פעם שעונים מופיעה שאלה חדשה אם צדקת בשאלה הקודמת תתווסף לך נקודה. מספר השאלה מופיע למטה."
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        ></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4.כנגמר המשחק יופיע לך הודעה שבה תבחר אם אתה רוצה עוד משחק או לחזור למסך הבית"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        ></TextView>
+
+    <Button
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="80dp"
+        android:id="@+id/btnReturn"
+        android:layout_width="249dp"
+        android:layout_height="101dp"
+        android:onClick="onStartGame"
+        android:text="חזרה למסך הבית"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09" />
+
+</LinearLayout>
+

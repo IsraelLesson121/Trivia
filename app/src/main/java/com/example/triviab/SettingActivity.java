@@ -34,8 +34,8 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
 
         ArrayAdapter aa =
                 new ArrayAdapter(this, android.R.layout.simple_spinner_item,arrColor);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(aa);
+            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(aa);
 
     }
 

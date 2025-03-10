@@ -15,22 +15,22 @@ public class FbModule {
     private Context context;
 
     public FbModule(Context context) {
-        this.context = context;// הפניה לmainactivity
+        this.context = context; // הפניה ל MainActivity
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("color");
+
         reference.addValueEventListener(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String str = snapshot.getValue(String.class);
-                        if(str!= null) {
+                        if(str != null)
+                        {
                             ((MainActivity)context).setNewColorFromFb(str);
-
 
                         }
                     }
-
-
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -38,14 +38,13 @@ public class FbModule {
                     }
                 }
         );
+
     }
 
-    public void writeBeckgroundColorToFb(String color)
-{
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference("color");
-    reference.setValue(color);
-}
-
-
+    public void writeBackgroundColorToFb(String color)
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("color");
+        reference.setValue(color);
+    }
 }

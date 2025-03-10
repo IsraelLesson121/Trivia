@@ -1,10 +1,8 @@
 package com.example.triviab;
 
-public class Question
-{
-    private  String question ,a1,a2,a3,a4;
-
-    private int correct;
+public class Question {
+    private String question,a1,a2,a3,a4;
+    private int correct ;
 
     public Question(String question, String a1, String a2, String a3, String a4, int correct) {
         this.question = question;

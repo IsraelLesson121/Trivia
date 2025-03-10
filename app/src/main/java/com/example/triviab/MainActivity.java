@@ -1,12 +1,10 @@
 package com.example.triviab;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,19 +14,17 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.firebase.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.collection.LLRBNode;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> launcher;
-
     private FbModule fbModule;
     private String backgroundColor = "";
     private ConstraintLayout ll;
@@ -40,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         ll = findViewById(R.id.main);
 
         fbModule = new FbModule(this);
+
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -49,9 +46,8 @@ public class MainActivity extends AppCompatActivity {
                         if (o.getResultCode() == RESULT_OK) {
                             Intent data = o.getData();
                             String str = data.getStringExtra("color");
-                            fbModule.writeBeckgroundColorToFb(str);
-                            //fbModule.changeBackgroundColorInFireBase(str);
-
+                            fbModule.writeBackgroundColorToFb(str);
+                            //Toast.makeText(MainActivity.this, "" + str, Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -63,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStartGame(View view) {
         Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra("str", backgroundColor);
         startActivity(intent);
     }
 
@@ -74,34 +71,36 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onInstruction(View view) {
+        Intent i = new Intent(this, InstructionActivity.class);
+        launcher.launch(i);
     }
 
     public void setNewColorFromFb(String str) {
-     //   Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+        this.backgroundColor = str;
+        //Toast.makeText(this, ""+backgroundColor, Toast.LENGTH_SHORT).show();
         setBackgroundColor(str);
+
     }
 
-    public void setBackgroundColor(String color){
-        switch (color){
+    public void setBackgroundColor(String color)
+    {
+        switch (color)
+        {
             case "Red":
             {
                 ll.setBackgroundColor(Color.RED);
                 break;
-
             }
-
             case "Blue":
             {
                 ll.setBackgroundColor(Color.BLUE);
                 break;
             }
-
             case "Pink":
             {
                 ll.setBackgroundColor(Color.argb(255,255,105,180));
                 break;
             }
-
             case "Yellow":
             {
                 ll.setBackgroundColor(Color.YELLOW);
@@ -109,10 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             default:
-            {
                 ll.setBackgroundColor(Color.WHITE);
-            }
         }
     }
 }
-

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "899696745051",
-    "project_id": "triviab-ceda4",
-    "storage_bucket": "triviab-ceda4.firebasestorage.app"
+    "project_number": "466346410319",
+    "project_id": "triviab-b3684",
+    "storage_bucket": "triviab-b3684.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:899696745051:android:2abef0909fde26b39dbd7e",
+        "mobilesdk_app_id": "1:466346410319:android:bde96056fd81509782853a",
         "android_client_info": {
           "package_name": "com.example.triviab"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDtvpK6PaDF-yqGzKzOiu42rXXKG3go9Eg"
+          "current_key": "AIzaSyDV6beLAJrWclQPb7y05HObW2lbHQcP31c"
         }
       ],
       "services": {
