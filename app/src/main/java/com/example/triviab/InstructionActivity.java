@@ -21,7 +21,6 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             btnReturn = findViewById(R.id.btnReturn);
             btnReturn.setOnClickListener(this);
 
-
     }
 
 
